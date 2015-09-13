@@ -17,12 +17,14 @@
     <script type="text/javascript">
         (function($){
             jQuery(document).ready( function(){
-                jQuery('.loading').removeClass('loading');
-                jQuery('.container').addClass('in');
-
+                pic = new Image();
+                pic.src="img/david-breuer-web-developer.jpg";
+                pic.onload = function() {
+                    jQuery('.loading').removeClass('loading');
+                    jQuery('.container').addClass('in');
+                }
             });
         })(jQuery)
-
     </script>
 </head>
 
