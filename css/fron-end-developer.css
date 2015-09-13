@@ -1,12 +1,13 @@
 body {
     font-family: 'Lato', Arial;
     color: #fff !important;
-    background: url('../img/david-breuer-web-developer.jpg') center center no-repeat fixed;
+    background: #97d1ab url('../img/david-breuer-web-developer.jpg') center center no-repeat fixed;
     background-size: cover;
 }
 
 .overlay {
-    background: rgba(108, 197, 241, 0.4);
+    /*background: rgba(108, 197, 241, 0.4);*/
+    background: url('../img/pattern.png') top left;
     position: absolute;
     left: 0;
     top: 0;
@@ -45,6 +46,8 @@ body {
     width: 640px;
     -webkit-transform: translate(-50%,-50%) rotate(5deg);
     -webkit-transform-origin: 50% 50%;
+    transform: translate(-50%,-50%) rotate(5deg);
+    transform-origin: 50% 50%;
 }
 .container {
     margin: 0px auto;
@@ -76,6 +79,7 @@ h1 span {
 }
 svg {
     margin: 0px auto;
+    width: 100%;
 }
 svg:after {
     clear: both;
@@ -97,10 +101,10 @@ svg:after {
 }
 
 p {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 30px;
     text-align: center;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 form {
