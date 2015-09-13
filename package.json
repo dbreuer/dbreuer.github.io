@@ -1,0 +1,25 @@
+{
+  "name": "pebble-angular-remote",
+  "version": "0.1.0",
+  "description": "Pebble watch app/server remote using web sockets",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "pebble",
+    "angularjs",
+    "socket",
+    "remote"
+  ],
+  "author": "David Breuer",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3",
+    "hapi": "^7.0.0",
+    "http": "0.0.0",
+    "url": "^0.11.0",
+    "ws": "^0.4.32"
+  }
+}
