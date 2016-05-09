@@ -1,0 +1,358 @@
+[
+    {
+        "id": 1301,
+        "type": "home",
+        "filter": "about",
+        "content": {
+            "title": "Hi, there",
+            "content": "I am a <span>David Breuer</span>, a  hunrarian-born Front-End <span>Web Developer</span> and based in London. I have a deep passion to create a good UX websites, applications and games."
+        }
+    },
+    {
+        "id": 1302,
+        "type": "image",
+        "filter": "social",
+        "content": {
+            "title": "Its Me",
+            "src": "https://instagram.com/p/3Z1OV3uuLx/media/?size=l"
+        }
+    },
+    {
+        "id": 1303,
+        "type": "twitter",
+        "filter": "social",
+        "content": {
+            "title": "Latest Tweets",
+            "account": "szunyog83"
+        }
+    },
+    {
+        "id": 1304,
+        "type": "home",
+        "filter": "service",
+        "content": {
+            "title": "Our Services",
+            "content": "We are absolutely passionate about <span>simple yet sophisticated</span> user experience and designs that we, and our clients, are very proud of."
+        }
+    },
+    {
+        "id": 1305,
+        "type": "image",
+        "filter": "service",
+        "content": {
+            "title": "Our Services",
+            "src": "https://instagram.com/p/ehCnQiuuEY/media/?size=l"
+        }
+    },
+    {
+        "id": 1306,
+        "type": "small",
+        "filter": "service",
+        "content": {
+            "title": "Efficiency",
+            "content": "We use a well-proven process to deliver a tailor made UX to our Clients. Every project has clear goals, precise timing, and flawless management."
+        }
+    },
+    {
+        "id": 1307,
+        "type": "small",
+        "filter": "service",
+        "content": {
+            "title": "Design",
+            "content": "Design for coders and don\"t waste precious time in design first, check later. I work side by side with designers."
+        }
+    },
+    {
+        "id": 1308,
+        "type": "small",
+        "filter": "service",
+        "content": {
+            "title": "Innovation",
+            "content": "We do not simply make websites. We create digital experiences to make the web come alive."
+        }
+    },
+    {
+        "id": 1309,
+        "type": "skills",
+        "filter": "about",
+        "content": {
+            "title": "My skills",
+            "details": {
+                "HTML5/CSS3": {
+                    "value": 99,
+                    "more": "canvas, webSQL, Data, +LESS, animation"
+                },
+                "Javascript/Angular JS": {
+                    "value": 85,
+                    "more": "OOP, Knockout, Node, Angular, websocket"
+                },
+                "PHP 5.x": {
+                    "value": 70,
+                    "more": "OOP, Smarty, WP, Joomla"
+                },
+                "API": {
+                    "value": 84,
+                    "more": "FB, Google, Twitter, Instagram, Tumblr, iTunes"
+                },
+                "Graphic/Responsive": {
+                    "value": 85,
+                    "more": "PS CS6, AI, Gimp, SVG, Bootstrap 2.3 - 4.x, Boilerplate, Foundation"
+                },
+                "Version Control": {
+                    "value": 80,
+                    "more": "SVN, Git, Github"
+                }
+            }
+        }
+    },
+
+    {
+       "id": 1405,
+        "type": "portfolio",
+        "filter": "portfolio",
+        "content": {
+            "title": "Bree",
+            "link": "http://bree.hu/",
+            "icon": "fa-thumbs-up",
+            "type": "web",
+            "src": "images/bree_t.png",
+            "date": "1427955478000",
+            "details": {
+                "images": ["images/bree.png"],
+                "description": "Beautiful flowers and interior design personal website and blog",
+                "keywords": [
+                    "web",
+                    "html5",
+                    "responsive",
+                    "wordpress",
+                    "cms",
+                    "flat design"
+                ]
+            }
+        }
+    },
+    {
+       "id": 1406,
+        "type": "portfolio",
+        "filter": "portfolio",
+        "content": {
+            "title": "SeoSem",
+            "icon": "fa-users",
+            "src": "images/centralmarketing_t.png",
+            "link": "http://www.centralmarketing.hu/",
+            "date": "1427955478000",
+            "details": {
+                "client": "Web Steel Kft.",
+                "date": 1427955478000,
+                "skills": ["HTML5", "CSS3", "Wordpress", "jQuery"],
+                "images": ["images/centralmarketing.png", "images/seosem_responsive.png"],
+                "description": "Search engine optimizer company website, simple business design",
+                "type": "web",
+                "keywords": [
+                    "cms",
+                    "web",
+                    "wordpress",
+                    "seo"
+                ]
+            }
+        }
+    },
+    {
+       "id": 1407,
+        "type": "portfolio",
+        "filter": "portfolio",
+        "content": {
+            "title": "Autouvegfoliazas",
+            "link": "http://autouvegfoliazas.hu/",
+            "icon": "fa-taxi",
+            "src": "images/autouvegfoliazas_t.png",
+            "details": {
+                "images": ["images/autouvegfoliazas.png"],
+                "description": "Car foil, car wrap simple full responsive retina design wesite.",
+                "type": "web",
+                "keywords": [
+                    "cms",
+                    "web",
+                    "wordpress",
+                    "html5",
+                    "responsive",
+                    "flat design",
+                    "car"
+                ]
+            }
+        }
+    },
+
+    {
+       "id": 1409,
+        "type": "portfolio",
+        "filter": "portfolio",
+        "content": {
+            "title": "Le Baron",
+            "link": "http://lebaron.hu/",
+            "icon": "fa-building",
+            "src": "images/lebaron_t.png",
+            "date": "1427955478000",
+            "details": {
+                "images": ["images/lebaron.png"],
+                "description": "...",
+                "type": "web",
+                "keywords": [
+                    "cms",
+                    "web",
+                    "joomla",
+                    "news",
+                    "portfolio"
+                ]
+            }
+        }
+    },
+    {
+       "id": 1410,
+        "type": "portfolio",
+        "filter": "portfolio",
+        "content": {
+            "title": "Viharkar elharitas",
+            "link": "http://viharkarelharitas.hu/",
+            "icon": "fa-bolt",
+            "src": "images/viharkarelharitas_t.png",
+            "date": "1427955478000",
+            "details": {
+                "images": ["images/viharkarelharitas_big.png"],
+                "description": "...",
+                "type": "web",
+                "keywords": [
+                    "cms",
+                    "web",
+                    "wordpress",
+                    "news",
+                    "small"
+                ]
+            }
+        }
+    },
+    {
+       "id": 1411,
+        "type": "portfolio",
+        "filter": "portfolio",
+        "content": {
+            "title": "Marcus Wareing",
+            "link": "http://marcus-wareing.com/",
+            "icon": "fa-spoon",
+            "src": "images/marcus-wareing_t.png",
+            "date": "1427955478000",
+            "details": {
+                "images": ["images/marcus-wareing.png"],
+                "description": "...",
+                "type": "web",
+                "keywords": [
+                    "cms",
+                    "web",
+                    "wordpress",
+                    "news",
+                    "restaurant"
+                ]
+            }
+        }
+    },
+    {
+       "id": 1412,
+        "content": {
+            "title": "Dragon Digital",
+            "link": "http://dragondi.co.uk/",
+            "icon": "fa-cubes",
+            "src": "images/dragondi_t.png",
+            "date": "1427955478000",
+            "details": {
+                "images": ["images/dragondi.png"],
+                "description": "...",
+                "type": "web",
+                "keywords": [
+                    "cms",
+                    "web",
+                    "wordpress",
+                    "news",
+                    "small"
+                ]
+            }
+        }
+    },
+    {
+       "id": 1413,
+        "type": "portfolio",
+        "filter": "portfolio",
+        "content": {
+            "title": "Select",
+            "link": "http://select.hu/",
+            "icon": "fa-briefcase",
+            "src": "images/select_t.png",
+            "date": "1427955478000",
+            "details": {
+                "images": ["images/select.png"],
+                "description": "...",
+                "type": "web",
+                "keywords": [
+                    "cms",
+                    "web",
+                    "wordpress",
+                    "news",
+                    "small"
+                ]
+            }
+        }
+    },
+
+    {
+       "id": 1415,
+        "type": "portfolio",
+        "filter": "portfolio",
+        "content": {
+            "title": "AAT",
+            "link": "https://www.aat.org.uk/",
+            "date": "1427955478000",
+            "icon": "ion-easel",
+            "src": "images/aat_t.png",
+            "details": {
+                "images": ["images/aat.png"],
+                "description": "Accounting technology Drupal website with well structured Angularjs and Node JS Front-end",
+                "type": "web",
+                "keywords": [
+                    "cms",
+                    "web",
+                    "drupal",
+                    "news",
+                    "accounting",
+                    "angularjs",
+                    "nodejs"
+                ]
+            }
+        }
+    },
+    {
+       "id": 1416,
+        "type": "portfolio",
+        "filter": "portfolio",
+        "content": {
+            "title": "Wieger.hu",
+            "link": "https://www.wieger.hu/",
+            "date": "1427955478000",
+            "icon": "ion-paintbrush",
+            "src": "images/wieger_t.png",
+            "details": {
+                "images": ["images/wieger.png"],
+                "description": "A great hungarian artist personal website with paint catalog, full responsive wodpress based project.",
+                "type": "web",
+                "keywords": [
+                    "cms",
+                    "web",
+                    "wordpress",
+                    "art",
+                    "social",
+                    "seo",
+                    "php"
+                ]
+            }
+        }
+    }
+
+]

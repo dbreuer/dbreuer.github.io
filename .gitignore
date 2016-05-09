@@ -1,5 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
-
+.idea
 server.js
 node_modules
 package.json
