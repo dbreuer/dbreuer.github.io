@@ -5,7 +5,7 @@
         "filter": "about",
         "content": {
             "title": "Hi, there",
-            "content": "I am a <span>David Breuer</span>, a  hungarian-born Front-End <span>Web Developer</span> and based in London. I have a deep passion to create a good UX websites, applications and games."
+            "content": "I am <span>David Breuer</span>, a hungarian-born Front-End <span>Web Developer</span> and based in London. I have a deep passion to create a good UX websites, applications and games."
         }
     },
     {
@@ -32,7 +32,7 @@
         "filter": "service",
         "content": {
             "title": "Our Services",
-            "content": "We are absolutely passionate about <span>simple yet sophisticated</span> user experience and designs that we, and our clients, are very proud of."
+            "content": "I am absolutely passionate about <span>simple yet sophisticated</span> user experience and designs that myself, and my clients, are very proud of."
         }
     },
     {
@@ -50,7 +50,7 @@
         "filter": "service",
         "content": {
             "title": "Efficiency",
-            "content": "We use a well-proven process to deliver a tailor made UX to our Clients. Every project has clear goals, precise timing, and flawless management."
+            "content": "I use a well-proven process to deliver a tailor made UX to our Clients. Every project has clear goals, precise timing, and flawless management."
         }
     },
     {
@@ -68,7 +68,7 @@
         "filter": "service",
         "content": {
             "title": "Innovation",
-            "content": "We do not simply make websites. We create digital experiences to make the web come alive."
+            "content": "I do not simply make websites. I create digital experiences to make the web come alive."
         }
     },
     {
@@ -83,12 +83,12 @@
                     "more": "canvas, webSQL, Data, +LESS, animation"
                 },
                 "Javascript/Angular JS": {
-                    "value": 85,
-                    "more": "OOP, Knockout, Node, Angular, websocket"
+                    "value": 99,
+                    "more": "OOP, Node, Angular 2, webpack, SystemJS"
                 },
                 "PHP 5.x": {
                     "value": 70,
-                    "more": "OOP, Smarty, WP, Joomla"
+                    "more": "Drupal, Smarty, WP, Joomla"
                 },
                 "API": {
                     "value": 84,
@@ -99,7 +99,7 @@
                     "more": "PS CS6, AI, Gimp, SVG, Bootstrap 2.3 - 4.x, Boilerplate, Foundation"
                 },
                 "Version Control": {
-                    "value": 80,
+                    "value": 90,
                     "more": "SVN, Git, Github"
                 }
             }
