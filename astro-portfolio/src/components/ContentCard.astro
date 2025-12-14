@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  content: string;
+  variant?: 'large' | 'small';
+}
+
+const { title, content, variant = 'large' } = Astro.props;
+
+const sizeClasses = variant === 'large' 
+  ? 'col-span-2 row-span-2 p-8' 
+  : 'col-span-1 row-span-1 p-5';
+---
+
+<div class={`bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl ${sizeClasses}`}>
+  <h2 class={`font-heading font-bold text-stone-300 mb-3 ${variant === 'large' ? 'text-3xl' : 'text-xl'}`}>
+    {title}
+  </h2>
+  <div 
+    class={`text-neutral-400 leading-relaxed ${variant === 'large' ? 'text-lg' : 'text-sm'}`}
+    set:html={content}
+  />
+</div>
+
+<style>
+  div :global(span) {
+    @apply text-primary font-semibold;
+  }
+</style>

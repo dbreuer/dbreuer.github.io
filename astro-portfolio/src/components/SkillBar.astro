@@ -1,0 +1,31 @@
+---
+interface Props {
+  name: string;
+  value: number;
+  color?: string;
+}
+
+const { name, value, color } = Astro.props;
+
+const colorMap: Record<string, string> = {
+  'HTML5/CSS3': 'bg-teal-400',
+  'JavaScript/Angular JS': 'bg-teal-500',
+  'PHP 5.x': 'bg-teal-600',
+  'API': 'bg-teal-400',
+  'Graphic/Responsive': 'bg-teal-500',
+  'Version Control': 'bg-red-500',
+};
+
+const barColor = colorMap[name] || color || 'bg-teal-400';
+---
+
+<div class="mb-1">
+  <div class="h-7 bg-zinc-700 overflow-hidden flex items-center">
+    <div 
+      class={`h-full ${barColor} flex items-center px-2`}
+      style={`width: ${value}%`}
+    >
+      <span class="text-xs font-medium text-zinc-900 whitespace-nowrap">{name}</span>
+    </div>
+  </div>
+</div>

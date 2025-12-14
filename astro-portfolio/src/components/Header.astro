@@ -1,0 +1,63 @@
+---
+interface Props {
+  filters: string[];
+  activeFilter?: string;
+}
+
+const { filters, activeFilter = 'all' } = Astro.props;
+---
+
+<nav class="flex justify-center gap-6 py-6 border-b bg-white border-white" id="filter-nav">
+  <button 
+    data-filter="all"
+    class={`text-sm font-medium uppercase tracking-wider transition-colors ${
+      activeFilter === 'all' 
+        ? 'text-neutral-800' 
+        : 'text-zinc-500 hover:text-neutral-800'
+    }`}
+  >
+    Home
+  </button>
+  {filters.map((filter) => (
+    <button 
+      data-filter={filter}
+      class={`text-sm font-medium uppercase tracking-wider transition-colors ${
+        activeFilter === filter 
+          ? 'text-neutral-800' 
+          : 'text-zinc-500 hover:text-neutral-800'
+      }`}
+    >
+      {filter}
+    </button>
+  ))}
+</nav>
+
+<script>
+  const filterNav = document.getElementById('filter-nav');
+  const buttons = filterNav?.querySelectorAll('button');
+  const cards = document.querySelectorAll('[data-category]');
+
+  buttons?.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      
+      // Update active button
+      buttons.forEach((btn) => {
+        btn.classList.remove('text-neutral-800');
+        btn.classList.add('text-zinc-500');
+      });
+      button.classList.remove('text-zinc-500');
+      button.classList.add('text-neutral-800');
+      
+      // Filter cards
+      cards.forEach((card) => {
+        const categories = card.getAttribute('data-category')?.split(',') || [];
+        if (filter === 'all' || categories.includes(filter!)) {
+          (card as HTMLElement).style.display = '';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

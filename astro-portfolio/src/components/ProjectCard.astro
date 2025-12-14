@@ -1,0 +1,69 @@
+---
+interface Props {
+  id: number;
+  title: string;
+  image: string;
+  images?: string[];
+  link?: string;
+}
+
+const { id, title, image, images = [], link } = Astro.props;
+
+// Prepare images array for lightbox
+const lightboxImages = images.length > 0 ? images : [image.replace('_t.', '.')];
+---
+
+<div class="group relative bg-zinc-800 overflow-hidden">
+  <div class="aspect-[3/3] relative overflow-hidden">
+    <!-- Hover Menu (behind image) -->
+    <div class="absolute inset-0 bg-zinc-900 flex flex-col justify-center items-start pl-4 gap-3">
+      <a 
+        href={`/work/${id}`}
+        class="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+        <span class="text-sm">View Info</span>
+      </a>
+      <button 
+        type="button"
+        class="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors lightbox-trigger"
+        data-images={JSON.stringify(lightboxImages)}
+        data-title={title}
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+        </svg>
+        <span class="text-sm">Open in Lightbox</span>
+      </button>
+      {link && (
+        <a 
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+          </svg>
+          <span class="text-sm">Visit Website</span>
+        </a>
+      )}
+    </div>
+    
+    <!-- Sliding Image -->
+    <div class="absolute inset-0 bg-zinc-700 transform transition-transform duration-300 ease-out group-hover:translate-x-full">
+      <img 
+        src={image} 
+        alt={title}
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
+  </div>
+  <div class="p-3 bg-white">
+    <h3 class="text-2xl font-medium text-zinc-900">{title}</h3>
+  </div>
+</div>
