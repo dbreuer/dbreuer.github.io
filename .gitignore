@@ -3,4 +3,3 @@
 .DS*
 server.js
 node_modules
-package.json
