@@ -1,0 +1,63 @@
+---
+interface Props {
+  filters: string[];
+  activeFilter?: string;
+}
+
+const { filters, activeFilter = 'all' } = Astro.props;
+---
+
+<nav class="flex flex-wrap justify-center gap-2 mb-8" id="filter-nav">
+  <button 
+    data-filter="all"
+    class={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+      activeFilter === 'all' 
+        ? 'bg-primary text-white' 
+        : 'bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700'
+    }`}
+  >
+    All
+  </button>
+  {filters.map((filter) => (
+    <button 
+      data-filter={filter}
+      class={`px-4 py-2 rounded-full text-sm font-medium transition-all capitalize ${
+        activeFilter === filter 
+          ? 'bg-primary text-white' 
+          : 'bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700'
+      }`}
+    >
+      {filter}
+    </button>
+  ))}
+</nav>
+
+<script>
+  const filterNav = document.getElementById('filter-nav');
+  const buttons = filterNav?.querySelectorAll('button');
+  const cards = document.querySelectorAll('[data-category]');
+
+  buttons?.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      
+      // Update active button
+      buttons.forEach((btn) => {
+        btn.classList.remove('bg-primary', 'text-white');
+        btn.classList.add('bg-slate-800', 'text-slate-400');
+      });
+      button.classList.remove('bg-slate-800', 'text-slate-400');
+      button.classList.add('bg-primary', 'text-white');
+      
+      // Filter cards
+      cards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          (card as HTMLElement).style.display = '';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

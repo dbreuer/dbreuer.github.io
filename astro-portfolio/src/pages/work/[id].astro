@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { projects } from '../../data/content';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { id: project.id.toString() },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+// Get all images for slideshow
+const allImages = project.images && project.images.length > 0 
+  ? project.images 
+  : [project.image.replace('_t.', '.')];
+---
+
+<BaseLayout title={`${project.title} | David Breuer`}>
+  <div class="min-h-screen bg-zinc-900">
+    <!-- Close Button -->
+    <a 
+      href="/"
+      class="fixed top-4 right-4 z-50 text-zinc-400 hover:text-white transition-colors"
+      aria-label="Close"
+    >
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </a>
+
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <!-- Main Content (Left 2/3) -->
+        <div class="lg:col-span-2 space-y-6">
+          <!-- Image Slideshow -->
+          <div class="relative bg-green-500 aspect-video overflow-hidden group" id="slideshow">
+            <!-- Slides Container -->
+            <div class="relative w-full h-full">
+              {allImages.map((img, index) => (
+                <div 
+                  class={`slide absolute inset-0 transition-opacity duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+                  data-index={index}
+                >
+                  <img 
+                    src={img}
+                    alt={`${project.title} - Image ${index + 1}`}
+                    class="w-full h-full object-contain bg-green-500"
+                  />
+                </div>
+              ))}
+            </div>
+
+            <!-- Navigation Arrows (only show if multiple images) -->
+            {allImages.length > 1 && (
+              <>
+                <button 
+                  id="prev-slide"
+                  class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                  aria-label="Previous image"
+                >
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button 
+                  id="next-slide"
+                  class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                  aria-label="Next image"
+                >
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+
+                <!-- Slide Counter -->
+                <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
+                  <span id="current-slide">1</span> / {allImages.length}
+                </div>
+
+                <!-- Dot Indicators -->
+                <div class="absolute bottom-4 right-4 flex gap-2">
+                  {allImages.map((_, index) => (
+                    <button 
+                      class={`slide-dot w-2 h-2 rounded-full transition-colors ${index === 0 ? 'bg-white' : 'bg-white/50'}`}
+                      data-index={index}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+
+          <!-- About Section -->
+          <div class="bg-zinc-800 p-6">
+            <h2 class="text-zinc-400 text-sm font-medium mb-3">About this Project</h2>
+            <p class="text-2xl text-white leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+
+          <!-- Testimonial Quote -->
+          <div class="bg-zinc-800 p-6">
+            <blockquote class="text-zinc-300 italic">
+              <p class="text-lg leading-relaxed">
+                "This could be a blockquote. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Integer commodo tristique odio."
+              </p>
+              <footer class="mt-4 text-zinc-500 text-sm uppercase tracking-wider">
+                John Doe, Company Name
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Sidebar (Right 1/3) -->
+        <div class="space-y-6">
+          <!-- Project Info -->
+          <div class="bg-zinc-800 p-6">
+            <h1 class="text-2xl font-bold text-white mb-4">{project.title}</h1>
+            
+            <div class="space-y-2 text-sm mb-6">
+              <p>
+                <span class="text-zinc-500">Client:</span>{' '}
+                <span class="text-teal-400">{project.client || project.title}</span>
+              </p>
+              <p>
+                <span class="text-zinc-500">Date:</span>{' '}
+                <span class="text-teal-400">Apr 2, 2015</span>
+              </p>
+            </div>
+
+            <!-- Tech Tags -->
+            <div class="flex flex-wrap gap-1 mb-6">
+              {(project.skills || project.keywords).map((keyword) => (
+                <span class="text-teal-400 text-sm">
+                  {keyword.charAt(0).toUpperCase() + keyword.slice(1)} |
+                </span>
+              ))}
+            </div>
+
+            <!-- Action Links -->
+            <div class="space-y-4 pt-4 border-t border-zinc-700">
+              {project.link && (
+                <a 
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                  </svg>
+                  <span>Visit Website</span>
+                </a>
+              )}
+              <a 
+                href="#"
+                class="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span>I like it!</span>
+              </a>
+              <a 
+                href="mailto:hello@davidbreuer.com"
+                class="flex items-center gap-3 text-zinc-400 hover:text-white transition-colors"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <span>Contact Us</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Slideshow functionality
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.slide-dot');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    const currentSlideEl = document.getElementById('current-slide');
+    
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+
+    function showSlide(index: number) {
+      // Handle wrap-around
+      if (index >= totalSlides) index = 0;
+      if (index < 0) index = totalSlides - 1;
+      
+      currentIndex = index;
+      
+      // Update slides
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('opacity-100', i === index);
+        slide.classList.toggle('opacity-0', i !== index);
+      });
+      
+      // Update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('bg-white', i === index);
+        dot.classList.toggle('bg-white/50', i !== index);
+      });
+      
+      // Update counter
+      if (currentSlideEl) {
+        currentSlideEl.textContent = (index + 1).toString();
+      }
+    }
+
+    // Navigation
+    prevBtn?.addEventListener('click', () => showSlide(currentIndex - 1));
+    nextBtn?.addEventListener('click', () => showSlide(currentIndex + 1));
+    
+    // Dot navigation
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index') || '0');
+        showSlide(index);
+      });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') showSlide(currentIndex - 1);
+      if (e.key === 'ArrowRight') showSlide(currentIndex + 1);
+    });
+  </script>
+</BaseLayout>

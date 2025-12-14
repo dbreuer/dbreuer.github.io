@@ -1,0 +1,184 @@
+---
+// Lightbox component with slideshow support
+---
+
+<!-- Lightbox Overlay -->
+<div 
+  id="lightbox" 
+  class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4"
+>
+  <!-- Close Button -->
+  <button 
+    id="lightbox-close"
+    class="absolute top-4 right-4 text-white hover:text-zinc-300 transition-colors z-10"
+    aria-label="Close lightbox"
+  >
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <!-- Previous Button -->
+  <button 
+    id="lightbox-prev"
+    class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-zinc-300 transition-colors z-10 hidden"
+    aria-label="Previous image"
+  >
+    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+
+  <!-- Next Button -->
+  <button 
+    id="lightbox-next"
+    class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-zinc-300 transition-colors z-10 hidden"
+    aria-label="Next image"
+  >
+    <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+  
+  <div class="max-w-5xl max-h-[90vh] relative flex flex-col items-center">
+    <img 
+      id="lightbox-image"
+      src="" 
+      alt=""
+      class="max-w-full max-h-[80vh] object-contain"
+    />
+    <div class="mt-4 text-center">
+      <p id="lightbox-title" class="text-white text-lg"></p>
+      <p id="lightbox-counter" class="text-zinc-400 text-sm mt-1"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Lightbox state
+  let currentImages: string[] = [];
+  let currentIndex = 0;
+  let currentTitle = '';
+
+  // DOM elements
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxCounter = document.getElementById('lightbox-counter');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+  const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+  function updateLightboxImage() {
+    if (!lightboxImage || !lightboxTitle || !lightboxCounter) return;
+    
+    lightboxImage.src = currentImages[currentIndex];
+    lightboxImage.alt = `${currentTitle} - Image ${currentIndex + 1}`;
+    lightboxTitle.textContent = currentTitle;
+    lightboxCounter.textContent = currentImages.length > 1 
+      ? `${currentIndex + 1} / ${currentImages.length}` 
+      : '';
+    
+    // Show/hide nav buttons
+    if (lightboxPrev && lightboxNext) {
+      if (currentImages.length > 1) {
+        lightboxPrev.classList.remove('hidden');
+        lightboxNext.classList.remove('hidden');
+      } else {
+        lightboxPrev.classList.add('hidden');
+        lightboxNext.classList.add('hidden');
+      }
+    }
+  }
+
+  function showNextImage() {
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    updateLightboxImage();
+  }
+
+  function showPrevImage() {
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    updateLightboxImage();
+  }
+
+  // Open lightbox
+  lightboxTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const imagesData = (trigger as HTMLElement).getAttribute('data-images');
+      const title = (trigger as HTMLElement).getAttribute('data-title');
+      
+      // Parse images - can be JSON array or single image
+      try {
+        currentImages = imagesData ? JSON.parse(imagesData) : [];
+      } catch {
+        // Single image fallback
+        const singleImage = (trigger as HTMLElement).getAttribute('data-image');
+        currentImages = singleImage ? [singleImage.replace('_t.', '.')] : [];
+      }
+      
+      if (currentImages.length === 0) {
+        const singleImage = (trigger as HTMLElement).getAttribute('data-image');
+        currentImages = singleImage ? [singleImage.replace('_t.', '.')] : [];
+      }
+      
+      currentIndex = 0;
+      currentTitle = title || '';
+      
+      if (lightbox && currentImages.length > 0) {
+        updateLightboxImage();
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Navigation
+  lightboxNext?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showNextImage();
+  });
+  
+  lightboxPrev?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showPrevImage();
+  });
+
+  // Close lightbox
+  lightboxClose?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+  
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox?.classList.contains('flex')) return;
+    
+    if (e.key === 'Escape') {
+      closeLightbox();
+    } else if (e.key === 'ArrowRight') {
+      showNextImage();
+    } else if (e.key === 'ArrowLeft') {
+      showPrevImage();
+    }
+  });
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+  }
+</script>
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+  }
+</script>
