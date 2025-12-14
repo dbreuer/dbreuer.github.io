@@ -1,10 +1,11 @@
+import { date } from './../../node_modules/zod/src/v4/core/regexes';
 // Content data migrated from legacy content.json
 // This can be enhanced to use Astro Content Collections for Markdown-based content
 
 export const profile = {
     name: "David Breuer",
-    title: "Front-End Web Developer",
-    tagline: "I am <span>David Breuer</span>, a hungarian-born Front-End <span>Web Developer</span> based in London. I have a deep passion to create good UX websites, applications and games.",
+    title: "Solution Architect",
+    tagline: "I am <span>David Breuer</span>, a hungarian-born <span>Solution Architect</span> based in Budapest, specialised in Aviation Ecommerce systems and enterprise solutions and integrations.",
     twitter: "szunyog83",
     github: "dbreuer83mpro",
 };
@@ -12,7 +13,7 @@ export const profile = {
 export const services = {
     intro: {
         title: "Our Services",
-        content: "I am absolutely passionate about <span>simple yet sophisticated</span> user experience and designs that myself, and my clients, are very proud of."
+        content: "I am passionate about architecting <span>scalable and innovative</span> enterprise solutions that transform aviation ecommerce and integrate complex business systems."
     },
     items: [
         {
@@ -35,28 +36,28 @@ export const services = {
 
 export const skills = [
     {
-        name: "HTML5/CSS3",
-        value: 99,
+        name: ".NET & VueJS",
+        value: 95,
     },
     {
-        name: "JavaScript/Angular JS",
-        value: 99,
+        name: "AWS & Azure Cloud",
+        value: 90,
     },
     {
-        name: "PHP 5.x",
-        value: 70,
-    },
-    {
-        name: "API",
-        value: 84,
-    },
-    {
-        name: "Graphic/Responsive",
+        name: "Terraform & IaC",
         value: 85,
     },
     {
-        name: "Version Control",
-        value: 90,
+        name: "Enterprise Architecture",
+        value: 92,
+    },
+    {
+        name: "NIS2 & PCI-DSS Compliance",
+        value: 88,
+    },
+    {
+        name: "AI Technologies",
+        value: 83,
     }
 ];
 
@@ -64,6 +65,7 @@ export interface Project {
     id: number;
     title: string;
     description: string;
+    date?: string;
     image: string;
     images: string[];
     link?: string;
@@ -155,5 +157,87 @@ export const projects: Project[] = [
         images: ["/images/viharkarelharitas_big.png"],
         link: "http://viharkarelharitas.hu/",
         keywords: ["wordpress", "service", "responsive"]
+    },
+    {
+        id: 1411,
+        title: "Stag Shoot",
+        date: "2020-05-15",
+        description: "Stag shoot event management and booking website",
+        image: "/images/stagshoot_com_t.png",
+        images: ["/images/stagshoot_com.png"],
+        link: "http://stagshoot.com/",
+        keywords: ["wordpress", "service", "responsive"]
+    },
+    {
+        id: 1417,
+        title: "Focus Press Agency",
+        description: "Professional press agency and media services platform",
+        image: "/images/fpa_t.png",
+        images: ["/images/focuspressagency.com.png"],
+        link: "https://focuspressagency.com/",
+        keywords: ["media", "press", "agency", "enterprise"]
+    },
+    {
+        id: 1418,
+        title: "Dragon Post Production",
+        description: "Professional video post-production and editing services",
+        image: "/images/dragon_t.png",
+        images: ["/images/www.dragonpostproduction.com.png"],
+        link: "https://www.dragonpostproduction.com/",
+        keywords: ["video", "production", "media", "creative"]
+    },
+    {
+        id: 1419,
+        title: "NGBSH",
+        description: "Hungarian national organization website with comprehensive information system",
+        image: "/images/ngbs_t.png",
+        images: ["/images/www.ngbsh.hu_hu.png"],
+        link: "https://www.ngbsh.hu/hu/",
+        keywords: ["organization", "enterprise", "cms"]
+    },
+    {
+        id: 1420,
+        title: "City & Guilds Hungary",
+        description: "Educational institution and certification provider website",
+        image: "/images/city_and_guild_t.png",
+        images: ["/images/city_and_guild_t.png"],
+        link: "http://www.cityandguilds.hu/",
+        keywords: ["education", "certification", "enterprise"]
+    },
+    {
+        id: 1421,
+        title: "Lada Valesova",
+        description: "Personal portfolio and creative showcase website",
+        image: "/images/ladi_valesova_t.png",
+        images: ["/images/lai_valesova_big.png"],
+        link: "https://ladavalesova.com/",
+        keywords: ["portfolio", "creative", "personal"]
+    },
+    {
+        id: 1422,
+        title: "Bitrise",
+        description: "Mobile CI/CD platform for building, testing and deploying mobile apps",
+        image: "/images/bitrise_io_t.png",
+        images: ["/images/bitrise_io_big.png", "/images/bitrise_io_big_2.png"],
+        link: "https://bitrise.io",
+        keywords: ["devops", "ci/cd", "mobile", "platform"]
+    },
+    {
+        id: 1423,
+        title: "Lavard",
+        description: "Fashion e-commerce platform for men's clothing",
+        image: "/images/lavard_t.png",
+        images: ["/images/lavard_hu_big.png"],
+        link: "https://lavard.hu",
+        keywords: ["ecommerce", "fashion", "retail"]
+    },
+    {
+        id: 1424,
+        title: "Evenemen",
+        description: "Event management and planning platform",
+        image: "/images/eveneman_t.png",
+        images: ["/images/evenemen.hu.png", "/images/evenemen.hu_2.png", "/images/evenemen.hu_3.png", "/images/evenemen.hu_3_2.png"],
+        link: "https://evenemen.hu",
+        keywords: ["events", "management", "platform"]
     }
 ];

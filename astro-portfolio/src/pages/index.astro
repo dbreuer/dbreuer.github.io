@@ -9,14 +9,14 @@ import Lightbox from '../components/Lightbox.astro';
 import { profile, services, skills, projects } from '../data/content';
 ---
 
-<BaseLayout title="David Breuer | Front-End Web Developer | Game Maker">
+<BaseLayout title="David Breuer | Solution Architect | Aviation Ecommerce">
   <!-- Header with Logo -->
   <header class="text-center py-6 bg-white">
     <div class="inline-flex items-center gap-0 text-3xl font-bold tracking-tight">
       <span class="bg-emerald-300 text-zinc-900 px-3 py-1">DAVID</span>
       <span class="bg-sky-300 text-white px-3 py-1">BREUER</span>
     </div>
-    <p class="text-zinc-500 text-sm mt-2">Hacker | Creator | Food fan</p>
+    <p class="text-zinc-500 text-sm mt-2">Solution Architect | Aviation Ecommerce | Enterprise Integration</p>
   </header>
 
   <!-- Navigation -->
@@ -30,9 +30,9 @@ import { profile, services, skills, projects } from '../data/content';
       <div class="col-span-2 row-span-4 bg-zinc-800 p-6 flex flex-col justify-center" data-category="about,all">
         <h2 class="text-stone-300 text-2xl font-bold mb-3">Hi, there</h2>
         <p class="text-4xl leading-normal text-white leading-relaxed">
-          I am <span class="text-sky-300">David Breuer</span>, a hungarian-born Front-End 
-          <span class="text-sky-300">Web Developer</span> and based in London. I have a deep 
-          passion to create a good UX websites, applications and games.
+          I am <span class="text-sky-300">David Breuer</span>, a hungarian-born 
+          <span class="text-sky-300">Solution Architect</span> based in London, specialised in 
+          Aviation Ecommerce systems and enterprise solutions and integrations.
         </p>
       </div>
 
@@ -48,8 +48,8 @@ import { profile, services, skills, projects } from '../data/content';
       <div class="col-span-2 row-span-4 bg-zinc-800 p-6 flex flex-col justify-center" data-category="services,all">
         <h2 class="text-stone-300 text-2xl font-bold mb-3">Our Services</h2>
         <p class="text-4xl text-white leading-relaxed">
-          I am absolutely passionate about <span class="text-sky-400">simple yet sophisticated</span> user 
-          experience and designs that myself, and my clients, are very proud of.
+          I am passionate about architecting <span class="text-sky-400">scalable and innovative</span> enterprise 
+          solutions that transform aviation ecommerce and integrate complex business systems.
         </p>
       </div>
 
@@ -85,7 +85,7 @@ import { profile, services, skills, projects } from '../data/content';
       </div>
 
       <!-- Skills Card -->
-      <div class="col-span-1 row-span-2 bg-zinc-800 p-3" data-category="about,all">
+      <div class="col-span-2 row-span-2 bg-zinc-800 p-3" data-category="about,all">
         {skills.map((skill) => (
           <SkillBar name={skill.name} value={skill.value} />
         ))}

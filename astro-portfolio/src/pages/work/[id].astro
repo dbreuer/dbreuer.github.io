@@ -128,7 +128,7 @@ const allImages = project.images && project.images.length > 0
               </p>
               <p>
                 <span class="text-zinc-500">Date:</span>{' '}
-                <span class="text-teal-400">Apr 2, 2015</span>
+                <span class="text-teal-400">{ project.date ? new Date(project.date).toLocaleDateString() : 'N/A'}</span>
               </p>
             </div>
 
