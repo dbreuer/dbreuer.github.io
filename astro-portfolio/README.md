@@ -64,7 +64,7 @@ npm run build    # Creates static files in dist/
 npm run preview  # Preview the built site
 ```
 
-### GitHub Pages
+### GitHub Pages 2
 
 The included GitHub Actions workflow (`.github/workflows/deploy.yml`) will automatically:
 
