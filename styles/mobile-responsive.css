@@ -1,0 +1,529 @@
+/* 
+ * Mobile Responsive Design Improvements
+ * Enhances the mobile experience with better typography, touch targets, and layouts
+ */
+
+/* ========================================
+   Base Improvements for All Screen Sizes
+   ======================================== */
+
+/* Ensure images are responsive by default */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve box-sizing for better layout control */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Ensure smooth scrolling for better UX */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scrolling on mobile */
+body {
+    overflow-x: hidden;
+}
+
+/* ========================================
+   Touch Target Improvements (44x44px minimum)
+   ======================================== */
+
+/* Ensure all interactive elements meet minimum touch target size */
+a, button, input[type="submit"], input[type="button"], .tab, .skill-tab {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Navigation links - ensure adequate padding for touch */
+#options li a {
+    padding: 12px 20px;
+    display: inline-block;
+}
+
+/* Icon links need proper touch targets */
+.icons {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Social media icons touch targets */
+.social li a {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========================================
+   Typography Improvements for Mobile
+   ======================================== */
+
+/* Base font size improvements for readability */
+@media only screen and (max-width: 767px) {
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    /* Improve heading readability */
+    h1 {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+    
+    h2 {
+        font-size: 24px;
+        line-height: 1.4;
+    }
+    
+    h3 {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+    
+    h4 {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+    
+    /* Paragraph spacing for better readability */
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 1em;
+    }
+    
+    /* Ensure text is not too wide on mobile */
+    .container p,
+    .col1-3 p,
+    .col2-3 p {
+        max-width: 100%;
+    }
+}
+
+/* ========================================
+   Mobile Phones (320px - 480px)
+   ======================================== */
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    /* Extra small devices */
+    .container {
+        width: 100%;
+        padding: 0 15px;
+        max-width: 480px;
+    }
+    
+    /* Column adjustments for very small screens */
+    .col1-1, .col1-3, .col2-3 {
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+    /* Reduce spacing on small screens */
+    .element {
+        margin: 8px 0 !important;
+    }
+    
+    /* Navigation improvements */
+    #options {
+        padding: 10px 0;
+    }
+    
+    #options li a {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    
+    /* Logo adjustments */
+    h1#logo a {
+        font-size: 24px;
+    }
+    
+    /* Make buttons full width on very small screens for easier tapping */
+    .load-more {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    /* Ensure portfolio items stack nicely */
+    .portfolio.element {
+        margin-bottom: 15px !important;
+    }
+    
+    /* Footer social icons - ensure they wrap properly */
+    .social li {
+        margin: 5px;
+    }
+}
+
+/* ========================================
+   Tablets (481px - 768px)
+   ======================================== */
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 0 20px;
+        max-width: 768px;
+    }
+    
+    /* Two-column layout for tablets in landscape */
+    .col1-3 {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .col2-3 {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Navigation spacing */
+    #options li a {
+        font-size: 13px;
+        padding: 11px 18px;
+    }
+    
+    /* Logo size for tablets */
+    h1#logo a {
+        font-size: 32px;
+    }
+    
+    /* Better spacing for portfolio items */
+    .portfolio.element {
+        margin: 15px 0 !important;
+    }
+}
+
+/* ========================================
+   Small Laptops/Landscape Tablets (769px - 1024px)
+   ======================================== */
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        width: 100%;
+        padding: 0 30px;
+        max-width: 1024px;
+    }
+    
+    /* Adjust column widths for better use of space */
+    .col1-3 {
+        width: calc(33.333% - 20px);
+    }
+    
+    .col2-3 {
+        width: calc(66.666% - 20px);
+    }
+    
+    /* Navigation */
+    #options li a {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+}
+
+/* ========================================
+   Landscape Orientation Specific
+   ======================================== */
+
+@media only screen and (max-width: 896px) and (orientation: landscape) {
+    /* Reduce header height in landscape to maximize content area */
+    #logo-container {
+        height: auto;
+        padding: 10px 0;
+    }
+    
+    h1#logo {
+        padding-top: 10px;
+    }
+    
+    /* Compact navigation in landscape */
+    #options {
+        height: auto;
+        padding: 5px 0;
+    }
+    
+    #options ul {
+        padding-top: 10px;
+    }
+    
+    /* Reduce vertical spacing */
+    .element {
+        margin: 5px 0 !important;
+    }
+}
+
+/* ========================================
+   Navigation Improvements
+   ======================================== */
+
+/* Improve mobile menu visibility */
+@media only screen and (max-width: 767px) {
+    #nav-button {
+        min-height: 44px;
+        min-width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px;
+    }
+    
+    /* Ensure menu items are easily tappable when shown */
+    #options li {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    #options li a {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        min-height: 50px;
+    }
+}
+
+/* ========================================
+   Image and Media Improvements
+   ======================================== */
+
+/* Ensure images don't overflow their containers */
+.images img,
+.portfolio img,
+img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+/* Map responsive improvements */
+@media only screen and (max-width: 767px) {
+    #map {
+        width: 100%;
+        height: 300px;
+        min-height: 250px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    #map {
+        width: 100%;
+        height: 400px;
+    }
+}
+
+/* ========================================
+   Form and Input Improvements
+   ======================================== */
+
+/* Ensure form inputs are mobile-friendly */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+textarea,
+select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 15px;
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Submit buttons */
+input[type="submit"],
+input[type="button"],
+button {
+    min-height: 44px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* ========================================
+   Portfolio Grid Improvements
+   ======================================== */
+
+@media only screen and (max-width: 767px) {
+    /* Stack portfolio items vertically on mobile */
+    .portfolio.element {
+        width: 100% !important;
+        float: none !important;
+        margin: 15px 0 !important;
+    }
+    
+    /* Ensure portfolio images are properly sized */
+    .portfolio .images img {
+        width: 100%;
+        height: auto;
+        max-height: none;
+    }
+    
+    /* Info overlays should be full width */
+    .infos,
+    .infos-single-work,
+    .movable-content {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Tablet portfolio - 2 columns */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .portfolio.element {
+        width: calc(50% - 10px) !important;
+        float: left !important;
+        margin: 10px 5px !important;
+    }
+}
+
+/* ========================================
+   Performance Optimizations
+   ======================================== */
+
+/* Reduce animations on mobile for better performance */
+@media only screen and (max-width: 767px) {
+    .isotope,
+    .isotope .isotope-item {
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+    }
+    
+    /* Simplify hover effects on mobile */
+    .portfolio.element:hover .movable-content {
+        left: 0; /* Disable slide animation on mobile */
+    }
+}
+
+/* ========================================
+   Accessibility Improvements
+   ======================================== */
+
+/* Focus states for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #6cc5f1;
+    outline-offset: 2px;
+}
+
+/* Skip to main content link for accessibility */
+.skip-to-main {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+}
+
+.skip-to-main:focus {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: #6cc5f1;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* ========================================
+   Utility Classes for Responsive Design
+   ======================================== */
+
+/* Hide elements on mobile */
+@media only screen and (max-width: 767px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Hide elements on tablet and larger */
+@media only screen and (min-width: 768px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* Spacing utilities */
+.mb-mobile {
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+    .mb-mobile {
+        margin-bottom: 15px;
+    }
+}
+
+/* ========================================
+   Footer Improvements
+   ======================================== */
+
+@media only screen and (max-width: 767px) {
+    footer {
+        height: auto;
+        padding: 30px 20px;
+        text-align: center;
+    }
+    
+    .social {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+    }
+    
+    .social li {
+        flex: 0 0 auto;
+    }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+    /* Hide non-essential elements when printing */
+    #nav-button,
+    #options,
+    .social,
+    footer {
+        display: none;
+    }
+    
+    /* Optimize for print */
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+    
+    /* Show URLs for links in print */
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+}
